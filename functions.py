@@ -15,7 +15,7 @@ def calc_feedin(capacity):
     assumptions:
     - self consumption rate is 30% , common for residential pv systems
     '''
-    return capacity * 0.7
+    return capacity * 700
 
 def calc_crf(duration, rate):
     '''calcualtes the captial return factor '''
