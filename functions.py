@@ -1,13 +1,21 @@
-'''some functions for calculating profitable residential photovaltic data'''
+'''functions for calculating the profitable of an residential photovaltic'''
 
 def calc_self_consumption(consumption, capacity):
-    '''calculates the self consumption'''
+    '''calculates the self consumption
+    assumptions:
+    - yearly production capacity is 1000kWh/kWp, common for middle europe
+    - self consumption rate is 30% , common for residential pv systems
+    '''
     production = capacity * 1000
     self_consumption = 0.3*production
     return self_consumption
 
 def calc_feedin(capacity):
-    return capacity * 0.3
+    '''calculates the feed in energy
+    assumptions:
+    - self consumption rate is 30% , common for residential pv systems
+    '''
+    return capacity * 0.7
 
 def calc_crf(duration, rate):
     '''calcualtes the captial return factor '''
@@ -15,7 +23,8 @@ def calc_crf(duration, rate):
     return crf
 
 def calc_af(crf, invest):
-    '''calculates the yearly annuität'''
+    '''calculates the yearly annuity'''
     return invest*crf
 def calc_cashflow(energy, tarif):
+    '''calculates the yearly cashflow'''
     return energy*tarif
